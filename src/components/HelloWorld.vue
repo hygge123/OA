@@ -32,11 +32,14 @@
         </div>
       </div>
     </div>
-
+    <div class="footerBar">
+      <footerComponent ></footerComponent>
+    </div>
   </div>
 </template>
 
 <script>
+    import footerComponent from '@/components/footerComponent'
   export default {
     name: 'HelloWorld',
     data () {
@@ -55,7 +58,10 @@
           {url: require('@/assets/image/turn1.png')}
         ]
       }
-    }
+    },
+      components:{
+          footerComponent
+      }
   }
 </script>
 

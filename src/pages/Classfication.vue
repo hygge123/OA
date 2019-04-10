@@ -16,177 +16,184 @@
       </div>
       <div class="showList" ref="showListWrapper">
         <ul>
-            <li v-for=" (items,index) in showList " ref="goodsList">
-              <div class="items">
-                  <img :src="items.bannerUrl" alt="" class="banner">
-                  <div class="title">
-                    <span class="line"></span>
-                    <span class="text">{{items.name}}{{index}}</span>
-                    <span class="line"></span>
-                  </div>
-                  <div class="goods-flex-box" >
-                    <ul class="goodsList" >
-                      <li class="goods-item" v-for="goods in items.goods">
-                        <img :src="goods.url" alt="" class="goodsImg">
-                        <p class="goods-name">{{goods.name}}</p>
-                      </li>
-                    </ul>
-                  </div>
+          <li v-for=" (items,index) in showList " ref="goodsList">
+            <div class="items">
+              <img :src="items.bannerUrl" alt="" class="banner">
+              <div class="title">
+                <span class="line"></span>
+                <span class="text">{{items.name}}{{index}}</span>
+                <span class="line"></span>
               </div>
-            </li>
+              <div class="goods-flex-box" >
+                <ul class="goodsList" >
+                  <li class="goods-item" v-for="goods in items.goods">
+                    <img :src="goods.url" alt="" class="goodsImg">
+                    <p class="goods-name">{{goods.name}}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
+    </div>
+    <div class="footerBar">
+      <footerComponent :currentIndex="1"></footerComponent>
     </div>
   </div>
 </template>
 
 <script>
-  import BScroll from'better-scroll'
-  export default {
-    name: "Classfication",
-    data() {
-      return {
-        value: '',
-        menus: [
-          {name: '新品'},
-          {name: '1段奶粉'},
-          {name: "2段奶粉"},
-          {name: "3段奶粉"},
-          {name: "4段奶粉"},
-          {name: "青少年奶粉"},
-          {name: "老年人奶粉"},
-        ],
-        showList:[
-          {
-                bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-                goods: [
-                  {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-                  {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-                  {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-                  {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-                  {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-                  {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-                ]
-              },
-          {
-            bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-            goods: [
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-            ]
-          },
-          {
-            bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-            goods: [
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-            ]
-          },
-          {
-            bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-            goods: [
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-            ]
-          },
-          {
-            bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-            goods: [
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-            ]
-          },
-          {
-            bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-            goods: [
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-            ]
-          },
-          {
-            bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
-            goods: [
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'},
-              {url: require("@/assets/image/奶粉.png"), name: '青少年'}
-            ]
-          },
-        ],
-        // currentIndex: 0,
-        scrollY: 0,
-        heightList:[]
+    import footerComponent from '@/components/footerComponent'
+    import BScroll from'better-scroll'
+    export default {
+        name: "Classfication",
+        data() {
+            return {
+                value: '',
+                menus: [
+                    {name: '新品'},
+                    {name: '1段奶粉'},
+                    {name: "2段奶粉"},
+                    {name: "3段奶粉"},
+                    {name: "4段奶粉"},
+                    {name: "青少年奶粉"},
+                    {name: "老年人奶粉"},
+                ],
+                showList:[
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                    {
+                        bannerUrl: require('@/assets/image/banner.png'), name: '羊奶粉',
+                        goods: [
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'},
+                            {url: require("@/assets/image/奶粉.png"), name: '青少年'}
+                        ]
+                    },
+                ],
+                // currentIndex: 0,
+                scrollY: 0,
+                heightList:[]
 
-      }
-    },
-    mounted(){
-        this.menuScroll=new BScroll(this.$refs.menuWrapper,{
-          click:true
-        });
-        this.goodsScroll = new BScroll(this.$refs.showListWrapper,{
-          probeType:3
-        });
-        this.goodsScroll.on("scroll",(pos)=>{
-          this.scrollY =Math.abs(Math.round(pos.y))
-        });
-      this._calheight();
-
-    },
-    methods:{
-        _calheight(){
-          let goodsList = this.$refs.goodsList;
-          let height  = 0;
-          this.heightList.push(height);
-          for(let i =0; i<goodsList.length;i++){
-              height+=goodsList[i].clientHeight;
-              this.heightList.push(height);
-          }
-          // console.log(this.heightList)
+            }
+        },
+        mounted(){
+            this.menuScroll=new BScroll(this.$refs.menuWrapper,{
+                click:true
+            });
+            this.goodsScroll = new BScroll(this.$refs.showListWrapper,{
+                probeType:3
+            });
+            this.goodsScroll.on("scroll",(pos)=>{
+                this.scrollY =Math.abs(Math.round(pos.y))
+            });
+            this._calheight();
 
         },
-        selectMenu(index,event){
-          if(!event._constructed) {
-            return ;
-          }
-          let goodsList = this.$refs.goodsList;
-          let el = goodsList[index];
-          this.goodsScroll.scrollToElement(el,300);
+        methods:{
+            _calheight(){
+                let goodsList = this.$refs.goodsList;
+                let height  = 0;
+                this.heightList.push(height);
+                for(let i =0; i<goodsList.length;i++){
+                    height+=goodsList[i].clientHeight;
+                    this.heightList.push(height);
+                }
+                // console.log(this.heightList)
+
+            },
+            selectMenu(index,event){
+                if(!event._constructed) {
+                    return ;
+                }
+                let goodsList = this.$refs.goodsList;
+                let el = goodsList[index];
+                this.goodsScroll.scrollToElement(el,300);
+            }
+        },
+        computed:{
+            currentIndex(){
+                for( let i=0 ;i<=this.heightList.length;i++){
+                    let  height1 = this.heightList[i];
+                    let  height2 = this.heightList[i+1];
+                    if(this.scrollY >= height1 && this.scrollY < height2){
+                        return i ;
+                    }
+                }
+            }
+        },
+        components:{
+            footerComponent
         }
-    },
-    computed:{
-      currentIndex(){
-        for( let i=0 ;i<=this.heightList.length;i++){
-          let  height1 = this.heightList[i];
-          let  height2 = this.heightList[i+1];
-          if(this.scrollY >= height1 && this.scrollY < height2){
-            return i ;
-          }
-        }
-      }
     }
-  }
 </script>
 
 <style scoped>
